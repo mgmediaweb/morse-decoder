@@ -7,27 +7,25 @@ def decode_char(char)
     '-.--' => 'Y', '--..' => 'Z', '.----' => '1', '..---' => '2', '...--' => '3', '....-' => '4',
     '.....' => '5', '-....' => '6', '--...' => '7', '---..' => '8', '----.' => '9', '-----' => '0'
   }
-
   codes[char]
 end
 
 def decode_word(code)
   result = ''
+  chars = code.split(/ /)
+  chars.each {|char| result += decode_char(char) }
+  result
+end
+
+def decode(code)
+  result = ''
   words = code.split(/   /)
-
-  words.each do |word|
-    chars = word.split(/ /)
-
-    chars.each do |char|
-      result += decode_char(char)
-    end
-
-    result += ' '
-  end
-
+  words.each {|word| result += decode_word(word.strip) + ' ' }
   puts result.chop
 end
 
-decode_word('-- -.--   -. .- -- .')
+# THIS IS A COMMENT
 
-decode_word('.-   -... --- -..-   ..-. ..- .-.. .-..   --- ..-.   .-. ..- -... .. . ...')
+decode('-- -.--   -. .- -- .')
+
+decode('.-   -... --- -..-   ..-. ..- .-.. .-..   --- ..-.   .-. ..- -... .. . ...')
