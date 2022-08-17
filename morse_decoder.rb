@@ -12,15 +12,13 @@ end
 
 def decode_word(code)
   result = ''
-  chars = code.split(/ /)
-  chars.each { |char| result += decode_char(char) }
+  code.split(/ /).each { |char| result += decode_char(char) }
   result
 end
 
 def decode(code)
   result = ''
-  words = code.split(/   /)
-  words.each { |word| result += "#{decode_word(word.strip)} " }
+  code.split(/   /).each { |word| result += "#{decode_word(word.strip)} " }
   puts result.chop
 end
 
