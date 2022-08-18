@@ -22,8 +22,6 @@ def decode(code)
   result.chop
 end
 
-# THIS IS A COMMENT
-
 p decode('.-')
 
 p decode('-- -.--')
