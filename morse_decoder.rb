@@ -19,11 +19,11 @@ end
 def decode(code)
   result = ''
   code.split(/   /).each { |word| result += "#{decode_word(word.strip)} " }
-  puts result.chop
+  result.chop
 end
 
 # THIS IS A COMMENT
 
-decode('-- -.--   -. .- -- .')
+p decode('-- -.--   -. .- -- .')
 
-decode('.-   -... --- -..-   ..-. ..- .-.. .-..   --- ..-.   .-. ..- -... .. . ...')
+p decode('.-   -... --- -..-   ..-. ..- .-.. .-..   --- ..-.   .-. ..- -... .. . ...')
